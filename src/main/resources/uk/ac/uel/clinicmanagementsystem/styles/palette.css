@@ -1,0 +1,24 @@
+.root {
+    background: #0a0a0a;
+    foreground: #fafafa;
+    card: #171717;
+    card-foreground: #fafafa;
+    popover: #171717;
+    popover-foreground: #fafafa;
+    primary: #e5e5e5;
+    primary-foreground: #171717;
+    secondary: #262626;
+    secondary-foreground: #fafafa;
+    muted: #262626;
+    muted-foreground: #a1a1a1;
+    accent: #262626;
+    accent-foreground: #fafafa;
+    destructive: #ff6568;
+    border: #ffffff1a;
+    input: #ffffff26;
+    ring: #737373;
+    ring-50: #73737380;
+    background-hover: #181818;
+    -fx-background-color: background;
+    -fx-text-fill: foreground;
+}

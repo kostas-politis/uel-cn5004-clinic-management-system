@@ -1,0 +1,287 @@
+classDiagram
+direction LR
+class ActionButtonTableCell~S, T~ {
+  - Button actionButton
+  + forTableColumn(String, Consumer~S~) Callback~TableColumn~S, T~, TableCell~S, T~~
+  + updateItem(T, boolean) void
+  + getCurrentItem() S
+}
+class App {
+  - Logger logger
+  + start(Stage) void
+}
+class AppException
+class Appointment {
+  - LocalTime time
+  - LocalDate date
+  - String id
+  - String doctorId
+  - String patientId
+  + id() String
+  + patientId() String
+  + time() LocalTime
+  + date() LocalDate
+  + doctorId() String
+}
+class AppointmentController {
+  - TableColumn~AppointmentWithNames, String~ idColumn
+  - TableColumn~AppointmentWithNames, String~ doctorColumn
+  - PatientService patientService
+  - TableView~AppointmentWithNames~ appointmentsTable
+  - TextField searchField
+  - ChoiceBox~String~ dateChoiceBox
+  - AppointmentService appointmentService
+  - List~Doctor~ doctorList
+  - FilteredList~AppointmentWithNames~ filteredAppointmentList
+  - Map~String, String~ doctorNames
+  - TableColumn~AppointmentWithNames, String~ timeColumn
+  - TableColumn~AppointmentWithNames, String~ patientColumn
+  - ObservableList~AppointmentWithNames~ appointmentList
+  - DoctorService doctorService
+  - TableColumn~AppointmentWithNames, String~ dateColumn
+  - List~Patient~ patientList
+  - Map~String, String~ patientNames
+  - BorderPane mainPane
+  - TableColumn~AppointmentWithNames, Void~ editColumn
+  - initializeSearchBar() void
+  - openEditAppointmentDialog(AppointmentWithNames) void
+  - onNewAppointmentClicked() void
+  - openNewAppointmentDialog() void
+  - updateFilter() void
+  - initializeDateFilter() void
+  - initializeTableView() void
+  + initialize() void
+  - initializeData() void
+}
+class AppointmentDialogController {
+  - ComboBox~Doctor~ doctorComboBox
+  - Spinner~Integer~ minuteSpinner
+  - DatePicker datePicker
+  - ComboBox~Patient~ patientComboBox
+  - Spinner~Integer~ hourSpinner
+  + initialize() void
+  + setDoctors(List~Doctor~) void
+  + setAppointment(Appointment) void
+  + setPatients(List~Patient~) void
+  + getAppointment() Create
+}
+class AppointmentRepository {
+<<Interface>>
+  + findAll() List~Appointment~
+  + update(String, Update) Appointment
+  + create(Create) Appointment
+  + delete(String) void
+}
+class AppointmentService {
+  - AppointmentRepository appointmentRepository
+  + findAll() List~Appointment~
+  - isDoubleBooked(String, LocalDate, LocalTime, String) boolean
+  + create(Create) Appointment
+  + update(String, Update) Appointment
+  + delete(String) void
+}
+class AppointmentWithNames {
+  - String doctorName
+  - Appointment source
+  - String patientName
+  + source() Appointment
+  + doctorName() String
+  + patientName() String
+}
+class CSVAppointmentRepository {
+  - Path filePath
+  + findAll() List~Appointment~
+  + update(String, Update) Appointment
+  + delete(String) void
+  + create(Create) Appointment
+  - readAll() List~Appointment~
+  - writeAll(List~Appointment~) void
+}
+class CSVDoctorRepository {
+  - Path filePath
+  + findAll() List~Doctor~
+  + update(String, Update) Doctor
+  + create(Create) Doctor
+  - readAll() List~Doctor~
+  + delete(String) void
+  - writeAll(List~Doctor~) void
+}
+class CSVPatientRepository {
+  - Path filePath
+  + findAll() List~Patient~
+  + update(String, Update) Patient
+  + delete(String) void
+  - writeAll(List~Patient~) void
+  + create(Create) Patient
+  - readAll() List~Patient~
+}
+class Doctor {
+  - String phone
+  - String firstName
+  - String id
+  - String lastName
+  - String specialty
+  + specialty() String
+  + id() String
+  + firstName() String
+  + phone() String
+  + lastName() String
+}
+class DoctorController {
+  - TableView~Doctor~ doctorsTable
+  - TableColumn~Doctor, String~ idColumn
+  - TableColumn~Doctor, Void~ editColumn
+  - ObservableList~Doctor~ doctors
+  - TableColumn~Doctor, String~ lastNameColumn
+  - TextField searchField
+  - DoctorService doctorService
+  - TableColumn~Doctor, String~ specialtyColumn
+  - TableColumn~Doctor, String~ phoneColumn
+  - BorderPane mainPane
+  - TableColumn~Doctor, String~ firstNameColumn
+  - openEditDoctorDialog(Doctor) void
+  - openNewDoctorDialog() void
+  + initialize() void
+  - onNewDoctorClicked() void
+}
+class DoctorDialogController {
+  - TextField firstNameField
+  - TextField phoneField
+  - TextField lastNameField
+  - TextField specialtyField
+  - Label errorLabel
+  + getDoctor() Create
+  + setDoctor(Doctor) void
+}
+class DoctorRepository {
+<<Interface>>
+  + delete(String) void
+  + findAll() List~Doctor~
+  + create(Create) Doctor
+  + update(String, Update) Doctor
+}
+class DoctorService {
+  - AppointmentRepository appointmentRepository
+  - DoctorRepository doctorRepository
+  + delete(String) void
+  + update(String, Update) Doctor
+  + findAll() List~Doctor~
+  + add(Create) Doctor
+}
+class Launcher {
+  + main(String[]) void
+}
+class NavbarController {
+  - Button patientsBtn
+  - Button doctorsBtn
+  - Button appointmentsBtn
+  + onPatientsClicked() void
+  + onAppointmentsClicked() void
+  + onDoctorsClicked() void
+  + initialize() void
+}
+class Patient {
+  - String firstName
+  - String lastName
+  - LocalDate dateOfBirth
+  - String phone
+  - String id
+  + id() String
+  + phone() String
+  + firstName() String
+  + lastName() String
+  + dateOfBirth() LocalDate
+}
+class PatientController {
+  - TableColumn~Patient, Void~ editColumn
+  - TableColumn~Patient, String~ lastNameColumn
+  - TableColumn~Patient, String~ phoneColumn
+  - TableColumn~Patient, String~ firstNameColumn
+  - TableColumn~Patient, String~ idColumn
+  - PatientService patientService
+  - ObservableList~Patient~ patients
+  - TableView~Patient~ patientsTable
+  - TableColumn~Patient, String~ dateOfBirthColumn
+  - BorderPane mainPane
+  - TextField searchField
+  - onNewPatientClicked() void
+  - openNewPatientDialog() void
+  + initialize() void
+  - openEditPatientDialog(Patient) void
+}
+class PatientDialogController {
+  - TextField firstNameField
+  - DatePicker dateOfBirthPicker
+  - TextField lastNameField
+  - TextField phoneField
+  + getPatient() Create
+  + setPatient(Patient) void
+}
+class PatientRepository {
+<<Interface>>
+  + create(Create) Patient
+  + delete(String) void
+  + update(String, Update) Patient
+  + findAll() List~Patient~
+}
+class PatientService {
+  - PatientRepository patientRepository
+  - AppointmentRepository appointmentRepository
+  + create(Create) Patient
+  + update(String, Update) Patient
+  + delete(String) void
+  + findAll() List~Patient~
+}
+class ViewManager {
+  - Callback~Class~?~, Object~ controllerFactory
+  - ViewManager instance
+  - Stage stage
+  - View currentView
+  + navigateTo(View) void
+  + initialize(Stage, Callback~Class~?~, Object~) void
+  + getCurrentView() View
+  + getInstance() ViewManager
+}
+
+App  ..>  AppException : «create»
+App  ..>  AppointmentController : «create»
+App  ..>  AppointmentService : «create»
+App  ..>  CSVAppointmentRepository : «create»
+App  ..>  CSVDoctorRepository : «create»
+App  ..>  CSVPatientRepository : «create»
+App  ..>  DoctorController : «create»
+App  ..>  DoctorService : «create»
+App  ..>  NavbarController : «create»
+App  ..>  PatientController : «create»
+App  ..>  PatientService : «create»
+AppointmentController  ..>  AppException : «create»
+AppointmentController "1" *--> "appointmentService 1" AppointmentService 
+AppointmentController  ..>  AppointmentWithNames : «create»
+AppointmentController "1" *--> "appointmentList *" AppointmentWithNames 
+AppointmentController "1" *--> "doctorList *" Doctor 
+AppointmentController "1" *--> "doctorService 1" DoctorService 
+AppointmentController "1" *--> "patientList *" Patient 
+AppointmentController "1" *--> "patientService 1" PatientService 
+AppointmentService  ..>  AppException : «create»
+AppointmentService "1" *--> "appointmentRepository 1" AppointmentRepository 
+AppointmentWithNames "1" *--> "source 1" Appointment 
+CSVAppointmentRepository  ..>  AppException : «create»
+CSVAppointmentRepository  ..>  Appointment : «create»
+CSVAppointmentRepository  ..>  AppointmentRepository 
+CSVDoctorRepository  ..>  AppException : «create»
+CSVDoctorRepository  ..>  Doctor : «create»
+CSVDoctorRepository  ..>  DoctorRepository 
+CSVPatientRepository  ..>  AppException : «create»
+CSVPatientRepository  ..>  Patient : «create»
+CSVPatientRepository  ..>  PatientRepository 
+DoctorController  ..>  AppException : «create»
+DoctorController "1" *--> "doctors *" Doctor 
+DoctorController "1" *--> "doctorService 1" DoctorService 
+DoctorService "1" *--> "appointmentRepository 1" AppointmentRepository 
+DoctorService "1" *--> "doctorRepository 1" DoctorRepository 
+PatientController  ..>  AppException : «create»
+PatientController "1" *--> "patients *" Patient 
+PatientController "1" *--> "patientService 1" PatientService 
+PatientService "1" *--> "appointmentRepository 1" AppointmentRepository 
+PatientService "1" *--> "patientRepository 1" PatientRepository 
+ViewManager  ..>  AppException : «create»

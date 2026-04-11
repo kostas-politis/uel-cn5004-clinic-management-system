@@ -1,0 +1,51 @@
+.navbar {
+    -fx-background-color: accent;
+    -fx-alignment: center-left;
+}
+
+.navbar .label {
+    -fx-text-fill: accent-foreground;
+    -fx-font-size: 16;
+    -fx-font-weight: bold;
+    -fx-padding: 0 8;
+}
+
+.navbar .button {
+    -fx-pref-height: 40;
+    -fx-text-fill: muted-foreground;
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+}
+
+.navbar .button:hover {
+    -fx-text-fill: white;
+    -fx-background-color: transparent;
+}
+
+.navbar .button.active {
+    -fx-text-fill: white;
+}
+
+.content {
+    -fx-padding: 20;
+}
+
+.table-wrapper {
+    -fx-background-radius: 10;
+    -fx-border-width: 1;
+    -fx-border-radius: 10;
+    -fx-border-color: secondary;
+}
+
+.table-wrapper .edit-column {
+    -fx-padding: 0 0 0 8;
+    -fx-alignment: center;
+}
+
+.table-dialog {
+    -fx-pref-width: 400;
+}
+
+.table-dialog .label {
+    -fx-text-fill: foreground;
+}

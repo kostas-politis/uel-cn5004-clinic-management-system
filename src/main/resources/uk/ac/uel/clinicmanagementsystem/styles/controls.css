@@ -1,0 +1,176 @@
+.table-view {
+    -fx-border-width: 0;
+    -fx-padding: 0;
+    -fx-background-color: background;
+}
+
+.table-view .column-header {
+    -fx-pref-height: 40;
+    -fx-text-fill: foreground;
+    -fx-background-color: secondary;
+}
+
+.table-view .column-header .label {
+    -fx-text-fill: foreground;
+    -fx-alignment: center-left;
+    -fx-label-padding: 8;
+}
+
+.table-view .filler {
+    -fx-background-color: secondary;
+}
+
+.table-row-cell {
+    -fx-background-color: background;
+}
+
+.table-row-cell:hover {
+    -fx-background-color: background-hover;
+}
+
+.table-row-cell:selected {
+    -fx-background-color: accent;
+}
+
+.table-cell {
+    -fx-pref-height: 50;
+    -fx-text-fill: foreground;
+    -fx-border-width: 0 0 1 0;
+    -fx-border-color: secondary;
+    -fx-alignment: center-left;
+    -fx-label-padding: 8;
+}
+
+.scroll-bar {
+    -fx-background-color: background;
+    -fx-pref-width: 10;
+}
+
+.scroll-bar .thumb {
+    -fx-background-color: accent;
+}
+
+.scroll-bar .increment-button,
+.scroll-bar .decrement-button,
+.scroll-bar .increment-arrow,
+.scroll-bar .decrement-arrow {
+    -fx-pref-height: 0;
+}
+
+.button,
+.text-field,
+.combo-box,
+.choice-box,
+.date-picker {
+    -fx-pref-height: 32;
+    -fx-font-size: 14;
+    -fx-background-radius: 8;
+    -fx-border-color: border;
+    -fx-border-width: 1;
+    -fx-border-radius: 8;
+}
+
+.button {
+    -fx-background-color: primary;
+    -fx-text-fill: primary-foreground;
+    -fx-font-weight: bold;
+    -fx-cursor: hand;
+}
+
+.button:focused {
+    -fx-border-width: 3;
+    -fx-border-insets: -2;
+    -fx-border-color: ring;
+}
+
+.text-field,
+.date-picker {
+    -fx-background-color: input;
+    -fx-text-fill: foreground;
+    -fx-prompt-text-fill: muted-foreground;
+    -fx-highlight-fill: primary;
+    -fx-highlight-text-fill: primary-foreground;
+}
+
+.combo-box,
+.choice-box {
+    -fx-background-color: input;
+}
+
+.combo-box .list-cell {
+    -fx-text-fill: foreground;
+}
+
+.text-field:focused,
+.combo-box:focused,
+.date-picker:focused {
+    -fx-border-width: 3;
+    -fx-border-insets: -2;
+    -fx-border-color: ring-50;
+}
+
+.combo-box-popup .list-view {
+    -fx-background-color: popover;
+}
+
+.combo-box-popup .list-cell {
+    -fx-background-color: transparent;
+    -fx-text-fill: popover-foreground;
+}
+
+.combo-box-popup .list-cell:hover {
+    -fx-background-color: secondary;
+}
+
+.date-picker {
+    -fx-max-width: Infinity;
+}
+
+.date-picker .text-field {
+    -fx-background-color: transparent;
+    -fx-border-width: 0;
+    -fx-text-fill: foreground;
+}
+
+.date-picker .arrow-button {
+    -fx-background-color: transparent;
+}
+
+.spinner {
+    -fx-background-color: input;
+    -fx-background-radius: 8 0 0 8;
+}
+
+.spinner .text-field {
+    -fx-background-color: transparent;
+    -fx-border-radius: 8 0 0 8;
+}
+
+.spinner .increment-arrow-button,
+.spinner .decrement-arrow-button {
+    -fx-background-color: secondary;
+}
+
+.spinner .increment-arrow-button {
+    -fx-background-radius: 0 8 8 0;
+}
+
+.spinner .decrement-arrow-button {
+    -fx-background-radius: 8 0 0 8;
+}
+
+.choice-box .label {
+    -fx-text-fill: foreground;
+}
+
+.choice-box .context-menu {
+    -fx-background-color: popover;
+}
+
+.choice-box .menu-item {
+    -fx-background-color: transparent;
+}
+
+.choice-box .menu-item:hover {
+    -fx-background-color: secondary;
+}

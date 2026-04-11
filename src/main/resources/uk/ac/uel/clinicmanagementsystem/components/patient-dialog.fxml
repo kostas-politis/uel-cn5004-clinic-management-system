@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<DialogPane
+    xmlns="http://javafx.com/javafx"
+    xmlns:fx="http://javafx.com/fxml"
+    fx:controller="uk.ac.uel.clinicmanagementsystem.controller.PatientDialogController"
+    styleClass="table-dialog"
+>
+    <content>
+        <VBox>
+            <Label text="First Name:" />
+            <TextField fx:id="firstNameField" />
+            <Label fx:id="firstNameErrorLabel" />
+
+            <Label text="Last Name:" />
+            <TextField fx:id="lastNameField" />
+            <Label fx:id="lastNameErrorLabel" />
+
+            <Label text="Date of Birth:" />
+            <DatePicker fx:id="dateOfBirthPicker" />
+            <Label fx:id="dateOfBirthErrorLabel" />
+
+            <Label text="Phone:" />
+            <TextField fx:id="phoneField" />
+            <Label fx:id="phoneErrorLabel" />
+        </VBox>
+    </content>
+    <buttonTypes>
+        <ButtonType fx:constant="OK" />
+        <ButtonType fx:constant="CANCEL" />
+    </buttonTypes>
+</DialogPane>

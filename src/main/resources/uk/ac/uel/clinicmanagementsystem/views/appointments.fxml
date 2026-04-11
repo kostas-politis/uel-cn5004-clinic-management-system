@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.shape.Rectangle?>
+<BorderPane
+    xmlns="http://javafx.com/javafx"
+    xmlns:fx="http://javafx.com/fxml"
+    fx:id="mainPane"
+    fx:controller="uk.ac.uel.clinicmanagementsystem.controller.AppointmentController"
+    styleClass="body"
+>
+    <top>
+        <fx:include source="../components/navbar.fxml" />
+    </top>
+    <center>
+        <VBox styleClass="content" spacing="10" maxHeight="Infinity">
+            <HBox spacing="10">
+                <TextField
+                    fx:id="searchField"
+                    styleClass="search-bar"
+                    promptText="Search..."
+                    HBox.hgrow="ALWAYS"
+                />
+                <ChoiceBox fx:id="dateChoiceBox" />
+                <Button
+                    text="New Appointment"
+                    onAction="#onNewAppointmentClicked"
+                />
+            </HBox>
+            <StackPane
+                fx:id="tableWrapper"
+                styleClass="table-wrapper"
+                VBox.vgrow="ALWAYS"
+            >
+                <TableView fx:id="appointmentsTable">
+                    <clip>
+                        <Rectangle
+                            arcWidth="20"
+                            arcHeight="20"
+                            width="${appointmentsTable.width}"
+                            height="${appointmentsTable.height}"
+                        />
+                    </clip>
+                    <columns>
+                        <TableColumn
+                            fx:id="editColumn"
+                            maxWidth="48"
+                            styleClass="edit-column"
+                        />
+                        <TableColumn
+                            fx:id="idColumn"
+                            text="ID"
+                            prefWidth="48"
+                        />
+                        <TableColumn fx:id="doctorColumn" text="Doctor" />
+                        <TableColumn fx:id="patientColumn" text="Patient" />
+                        <TableColumn fx:id="dateColumn" text="Date" />
+                        <TableColumn fx:id="timeColumn" text="Time" />
+                    </columns>
+                </TableView>
+            </StackPane>
+        </VBox>
+    </center>
+</BorderPane>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<HBox
+    xmlns="http://javafx.com/javafx"
+    xmlns:fx="http://javafx.com/fxml"
+    fx:controller="uk.ac.uel.clinicmanagementsystem.controller.NavbarController"
+    styleClass="navbar"
+>
+    <Label text="ClinicMS" />
+    <Button
+        fx:id="appointmentsBtn"
+        onAction="#onAppointmentsClicked"
+        text="Appointments"
+    />
+    <Button fx:id="doctorsBtn" onAction="#onDoctorsClicked" text="Doctors" />
+    <Button fx:id="patientsBtn" onAction="#onPatientsClicked" text="Patients" />
+</HBox>
